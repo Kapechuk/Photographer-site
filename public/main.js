@@ -25,7 +25,7 @@ require.config({
 	}
 });
 
-require(['app'],
-	function (App) {
-		App.start();
+require(['exApp'],
+	function (exApp) {
+		exApp.start();
 	});
