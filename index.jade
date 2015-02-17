@@ -1,20 +1,19 @@
 doctype html
 html(lang="ua")
     head
+        meta(charset="utf-8")
+        meta(name="author" content="Simple Tags")
+        meta(name="keywords" content="Tetiana Semak photographer, Тетяна Семак фотограф, Таня Семак, фотографія художня, зйомка, фото, фотозйомка")
+        meta(name="description" content="Tetiana Semak | Photographer | Personal Site")
+
         title= pageTitle
+        link(rel="icon" href="static/favicon/favicon.ico" type="image/x-icon")
         link(rel="stylesheet", href="css/vendor/bootstrap.min.css")
         link(rel="stylesheet", href="css/custom/style.css")
     body
-        h1 Jade - node template engine
-        #container.col
-            if youAreUsingJade
-                p You are amazing
-            else
-                p Get on it!
-            p.
-                Jade is a terse and simple
-                templating language with a
-                strong focus on performance
-                and powerful features.
+        div.wrapper
+            header
+            div.content
+        footer
         script(data-main="main", src="libs/require.js").
 
