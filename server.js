@@ -6,7 +6,10 @@ app.set('port', (process.env.PORT || 3000));
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(request, response) {
-	var html = jade.renderFile('index.jade', {pageTitle: "TITLE", youAreUsingJade: true});
+	var html = jade.renderFile('index.jade', {
+		pageTitle: "Веб сайт Семак Тетяни",
+		youAreUsingJade: true
+	});
 	response.send(html);
 });
 
