@@ -3,18 +3,24 @@ define([],
 		this.messages = {
 			"header": {
 				"logo": {
-					"title": "Tetiana Semak photographer",
-					"alt"  : "Portfolio Tetiana Semak photographer"
+					"title" : "Tetiana Semak photographer",
+					"alt"   : "Portfolio Tetiana Semak photographer"
 				},
 				"mainMenu" : {
-					"homePage" : "Портфоліо",
+					"homePage"       : "Портфоліо",
 					"servicesPrices" : "Послуги &amp; Ціни",
-					"contacts" : "Контакти"
+					"contacts"       : "Контакти"
 				},
-				"subMenu": {
-					"wedService" : "Весільна фотосесія",
+				"subMenu" : {
+					"wedService"   : "Весільна фотосесія",
 					"schoolAlbums" : "Випускні альбоми"
 				}
+			},
+			"footer" : {
+				"semak"    : "Tetiana Semak",
+				"kapechuk" : "Kapechuk Yuriy",
+				"design"   : "&copy; 2015 | Design: ",
+				"code"     : " | Code: "
 			}
 		};
 
