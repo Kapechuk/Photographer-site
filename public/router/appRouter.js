@@ -4,18 +4,30 @@ define(['backbone', 'app'],
 			initialize: function() {
 
 			},
-			routes: {
-				'' : 'showMainPage',
-				'help' : 'help'
+			routes : {
+				''              : 'showMainPage',
+				'wed_service'   : 'showWedServicePage',
+				'school_albums' : 'showSchoolAlbumsPage',
+				'contacts'      : 'showContactsPage'
 			},
 			
 			showMainPage : function () {
-				console.log("Home!");
+				console.log("Home Page!");
 				this.navigate('home', {replace: true})
 			},
 
-			help : function () {
-				console.log("Help!")
+			showWedServicePage : function () {
+				console.log("Wed Service Page!");
+			},
+
+			showSchoolAlbumsPage : function () {
+				console.log("School Albums Page!");
+			},
+
+			showContactsPage : function () {
+				console.log("Contacts Page!");
+				App.mainController.showContactsPage();
+				this.navigate('contacts')
 			}
 		});
 

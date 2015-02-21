@@ -4,6 +4,7 @@ define(['backbone', 'app', 'text!templates/footer.html'],
 			template: _.template(footerTemplate),
 			render: function () {
 				this.$el.html(this.template(App.messages));
+				return this;
 			}
 
 		});

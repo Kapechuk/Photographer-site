@@ -4,8 +4,8 @@ define(['backbone', 'app', 'text!templates/header.html'],
 			template: _.template(headerTemplate),
 			render: function() {
 				this.$el.html(this.template(App.messages));
+				return this;
 			}
 		});
-
-		return App.HeaderView;
+	return App.HeaderView;
 });
