@@ -2,7 +2,7 @@ define(['backbone', 'app'],
 	function (Backbone, App) {
 		App.Router = Backbone.Router.extend({
 			initialize: function() {
-
+				this.addHandlers();
 			},
 			routes : {
 				''              : 'showMainPage',
@@ -30,6 +30,17 @@ define(['backbone', 'app'],
 				console.log("Contacts Page!");
 				App.mainController.showContactsPage();
 				this.navigate('contacts')
+			},
+
+
+			navigateTo : function (route, options) {
+				options = options || {};
+
+				this.navigate(route, options);
+			},
+
+			addHandlers : function () {
+				App.vent.on('change:route', this.navigateTo.bind(this));
 			}
 		});
 

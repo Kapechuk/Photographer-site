@@ -1,13 +1,13 @@
-<a id="logo" title="<%= header.logo.title %>" href="#home">
+<a id="logo" class="home" title="<%= header.logo.title %>" href="#home">
     <img src="static/logo/logo.png" title="<%= header.logo.title %>" alt="<%= header.logo.alt %>" height="135" width="256"/>
 </a>
 <ul class="main-menu">
-    <li><a href="#home"><%= header.mainMenu.homePage %></a></li>
-    <li><a href="#_blank"><%= header.mainMenu.servicesPrices %></a>
+    <li><a href="#home" class="home"><%= header.mainMenu.homePage %></a></li>
+    <li><a href="#_blank" class="blank"><%= header.mainMenu.servicesPrices %></a>
         <ul class="sub-menu">
-            <li><a href="#wed_service"><%= header.subMenu.wedService %></a></li>
-            <li><a href="#school_albums"><%= header.subMenu.schoolAlbums %></a></li>
+            <li><a href="#wed_service" class="wed_service"><%= header.subMenu.wedService %></a></li>
+            <li><a href="#school_albums" class="school_albums"><%= header.subMenu.schoolAlbums %></a></li>
         </ul>
     </li>
-    <li><a href="#contacts"><%= header.mainMenu.contacts %></a></li>
+    <li><a href="#" class="contacts"><%= header.mainMenu.contacts %></a></li>
 </ul>
