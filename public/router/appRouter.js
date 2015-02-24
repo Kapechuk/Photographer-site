@@ -6,6 +6,7 @@ define(['backbone', 'app'],
 			},
 			routes : {
 				''              : 'showMainPage',
+				'home'          : 'showMainPage',
 				'wed_service'   : 'showWedServicePage',
 				'school_albums' : 'showSchoolAlbumsPage',
 				'contacts'      : 'showContactsPage'
@@ -13,6 +14,7 @@ define(['backbone', 'app'],
 			
 			showMainPage : function () {
 				console.log("Home Page!");
+				App.mainController.showMainPage();
 				this.navigate('home', {replace: true})
 			},
 

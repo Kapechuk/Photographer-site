@@ -21,11 +21,11 @@
                     </span>
     </div>
     <div class="ref-box">
-        <p><b>Рекомендовані послуги:</b></p>
+        <p><b><%= contacts.refBox.recServices %></b></p>
         <div class="video-ref">
             <div>
-                <span> -Відеозйомка</span>
-                <a class="vk" href="http://vk.com/v_filmark">http://vk.com/v_filmark</a> <br>
+                <span><%= contacts.refBox.services.video %></span>
+                <a class="vk" href="<%= contacts.refBox.services.filmarkLinkVk %>"><%= contacts.refBox.services.filmarkLinkVk %></a> <br>
                 <a class="site" href="http://filmark.com.ua">filmark.com.ua</a>
             </div>
             <a class="img" href="http://filmark.com.ua"><img src="contacts/pics/filmark.jpg" alt="filmark"></a>
