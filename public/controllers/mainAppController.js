@@ -3,9 +3,17 @@ define([
 		'app',
 		'views/headerView',
 		'views/footerView',
-		'modules/contacts/views/contactsView'
+		'modules/contacts/views/contactsView',
+		'modules/schoolAlbums/views/SchoolAlbumsView'
 	],
-	function (Backbone, App, HeaderView, FooterView, ContactsView) {
+	function (
+		Backbone,
+		App,
+		HeaderView,
+		FooterView,
+		ContactsView,
+		SchoolAlbumsView) {
+
 		App.mainAppController = function () {
 			var self = this;
 			self.layoutRenderedFlag = false;
@@ -17,6 +25,7 @@ define([
 				self.headerView = new HeaderView();
 				self.footerView = new FooterView();
 				self.contactsView = new ContactsView();
+				self.schoolAlbumsView = new SchoolAlbumsView()
 			};
 
 			self.layoutRender = function() {
@@ -39,13 +48,18 @@ define([
 
 			self.showMainPage = function () {
 				self.layoutRender();
-				self.selectors.mainContent.html('Main Page!');
 			};
 
 			self.showContactsPage = function () {
 				self.layoutRender();
 				self.contactsView.setElement(self.selectors.mainContent);
 				self.contactsView.render();
+			};
+
+			self.showSchoolAlbumsPage = function () {
+				self.layoutRender();
+				self.schoolAlbumsView.setElement(self.selectors.mainContent);
+				self.schoolAlbumsView.render();
 			};
 
 			init();

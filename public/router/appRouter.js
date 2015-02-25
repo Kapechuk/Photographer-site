@@ -24,6 +24,8 @@ define(['backbone', 'app'],
 
 			showSchoolAlbumsPage : function () {
 				console.log("School Albums Page!");
+				App.mainController.showSchoolAlbumsPage();
+				this.navigate('school_albums');
 			},
 
 			showContactsPage : function () {
