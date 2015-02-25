@@ -20,6 +20,8 @@ define(['backbone', 'app'],
 
 			showWedServicePage : function () {
 				console.log("Wed Service Page!");
+				App.mainController.showWedServicePage();
+				this.navigate('wed_service');
 			},
 
 			showSchoolAlbumsPage : function () {

@@ -4,7 +4,8 @@ define([
 		'views/headerView',
 		'views/footerView',
 		'modules/contacts/views/contactsView',
-		'modules/schoolAlbums/views/schoolAlbumsView'
+		'modules/schoolAlbums/views/schoolAlbumsView',
+		'../modules/wedService/views/wedServiceView'
 	],
 	function (
 		Backbone,
@@ -12,7 +13,8 @@ define([
 		HeaderView,
 		FooterView,
 		ContactsView,
-		SchoolAlbumsView) {
+		SchoolAlbumsView,
+		WedServiceView) {
 
 		App.mainAppController = function () {
 			var self = this;
@@ -25,7 +27,8 @@ define([
 				self.headerView = new HeaderView();
 				self.footerView = new FooterView();
 				self.contactsView = new ContactsView();
-				self.schoolAlbumsView = new SchoolAlbumsView()
+				self.schoolAlbumsView = new SchoolAlbumsView();
+				self.wedServiceView = new WedServiceView();
 			};
 
 			self.layoutRender = function() {
@@ -48,6 +51,7 @@ define([
 
 			self.showMainPage = function () {
 				self.layoutRender();
+				self.selectors.mainContent.html('');
 			};
 
 			self.showContactsPage = function () {
@@ -60,6 +64,12 @@ define([
 				self.layoutRender();
 				self.schoolAlbumsView.setElement(self.selectors.mainContent);
 				self.schoolAlbumsView.render();
+			};
+
+			self.showWedServicePage = function () {
+				self.layoutRender();
+				self.wedServiceView.setElement(self.selectors.mainContent);
+				self.wedServiceView.render()
 			};
 
 			init();
