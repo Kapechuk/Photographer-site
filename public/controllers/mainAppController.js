@@ -4,7 +4,7 @@ define([
 		'views/headerView',
 		'views/footerView',
 		'modules/contacts/views/contactsView',
-		'modules/schoolAlbums/views/SchoolAlbumsView'
+		'modules/schoolAlbums/views/schoolAlbumsView'
 	],
 	function (
 		Backbone,
