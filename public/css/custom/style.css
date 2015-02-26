@@ -21,10 +21,11 @@ header{
     padding:15px 0 0 0;
     text-align:center;
 }
-header>a{
+header #logo{
     display:inline-block;
     width:230px;
     height:133px;
+    cursor: pointer;
 }
 .menu-box {
     border-bottom:1px solid gray;
