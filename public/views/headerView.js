@@ -1,14 +1,15 @@
 define(['backbone', 'app', 'text!templates/header.html'],
 	function (Backbone, App, headerTemplate) {
 		App.HeaderView = Backbone.View.extend({
-			tagName: "header",
-			template: _.template(headerTemplate),
-			events : {
-				'click .home'          : 'goToPage',
-				'click .contacts '     : 'goToPage',
-				'click .wed_service'   : 'goToPage',
-				'click .school_albums' : 'goToPage',
-				'click .blank'         : 'goToPage'
+			tagName  : "header",
+			subMenu  : $('.sub-menu'),
+			template : _.template(headerTemplate),
+			events   : {
+				'click .home'            : 'goToPage',
+				'click .contacts '       : 'goToPage',
+				'click .wed_service'     : 'goToPage',
+				'click .school_albums'   : 'goToPage',
+				'click .submenu-trigger' : 'showSubMenu'
 			},
 
 			initialize : function () {
@@ -25,13 +26,17 @@ define(['backbone', 'app', 'text!templates/header.html'],
 
 			goToPage : function (e) {
 				if(e.target.className !== "blank") {
-					App.vent.trigger('change:route', e.target.className, { trigger: true });
-					e.preventDefault();
-					return false;
-				} else {
-					e.preventDefault();
-					return false;
+					if(e.target.className === "home" || e.target.className === "contacts") {
+						$('.sub-menu').slideUp(300, "swing");
+						App.vent.trigger('change:route', e.target.className, { trigger: true });
+					} else {
+						App.vent.trigger('change:route', e.target.className, { trigger: true });
+					}
 				}
+			},
+
+			showSubMenu : function () {
+				$('.sub-menu').slideToggle(300, "swing");
 			}
 
 		});

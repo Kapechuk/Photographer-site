@@ -19,7 +19,6 @@ body {
 header{
     margin:0;
     padding:15px 0 0 0;
-    height:185px;
     text-align:center;
 }
 header>a{
@@ -27,20 +26,26 @@ header>a{
     width:230px;
     height:133px;
 }
+.menu-box {
+    border-bottom:1px solid gray;
+    width:950px;
+    margin:10px auto 0;
+}
 .main-menu{
     display:inline-block;
     list-style:none;
-    padding:0 0 13px 0;
+    padding:0 0 6px 0;
     margin:10px 0 0 0;
     width:950px;
-    border-bottom:1px solid gray;
+
 }
 .main-menu li{
     padding:0;
     margin-right:15px;
     display:inline;
 }
-.main-menu a{
+.main-menu span, .sub-menu span{
+    cursor: pointer;
     text-decoration:none;
     color:gray;
     -webkit-transition:color 0.4s ease;
@@ -49,25 +54,30 @@ header>a{
     -ms-transition:color 0.4s ease;
     transition:color 0.4s ease;
 }
-.main-menu a:hover{
+.main-menu span:hover,
+.sub-menu span:hover {
     color:#53c7cb;
 }
-.main-menu a:active { /*Нужно подобрать цвет для активных линков*/
+.main-menu span:active { /*Нужно подобрать цвет для активных линков*/
 }
 .sub-menu{
+    list-style: none;
     display:none;
-    position:absolute;
-    left:430px;
-    top:175px;
-    height:50px;
-    line-height:50px;
-    padding-top:6px;
+    height:30px;
+    line-height:30px;
+    margin: 0;
+    padding:0 0 6px 0;
     box-sizing:border-box;
     z-index:5;
 }
-.main-menu>li:hover .sub-menu{
-    display:inline-block;
+
+.sub-menu li {
+    display:inline;
+    margin-right:15px;
 }
+/*.main-menu>li:hover .sub-menu{
+    display:inline-block;
+}*/
 .content{
     margin:0;
     padding:0;
