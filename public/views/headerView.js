@@ -2,6 +2,7 @@ define(['backbone', 'app', 'text!templates/header.html'],
 	function (Backbone, App, headerTemplate) {
 		App.HeaderView = Backbone.View.extend({
 			tagName  : "header",
+			className : "row",
 			subMenu  : $('.sub-menu'),
 			template : _.template(headerTemplate),
 			events   : {

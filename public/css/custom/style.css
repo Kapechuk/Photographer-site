@@ -12,7 +12,6 @@ body {
     display:block;
     position:relative;
     margin:0 auto;
-    width:1150px;
     min-height:93%; /*для приклейки футера ко дну страницы*/
 }
 
@@ -29,15 +28,15 @@ header #logo{
 }
 .menu-box {
     border-bottom:1px solid gray;
-    width:950px;
+    width:85%;
     margin:10px auto 0;
 }
 .main-menu{
     display:inline-block;
     list-style:none;
-    padding:0 0 6px 0;
+    padding:0 0 6px 11px;
     margin:10px 0 0 0;
-    width:950px;
+    width:100%;
 
 }
 .main-menu li{
@@ -64,10 +63,10 @@ header #logo{
 .sub-menu{
     list-style: none;
     display:none;
-    height:30px;
+    height:33px;
     line-height:30px;
     margin: 0;
-    padding:0 0 6px 0;
+    padding:0 0 6px 11px;
     box-sizing:border-box;
     z-index:5;
 }
