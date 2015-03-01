@@ -2,6 +2,7 @@ define(['backbone', 'app', 'text!templates/footer.html'],
 	function (Backbone, App, footerTemplate) {
 		App.FooterView = Backbone.View.extend({
 			tagName: "footer",
+			className : "container",
 			template: _.template(footerTemplate),
 
 			initialize : function () {
