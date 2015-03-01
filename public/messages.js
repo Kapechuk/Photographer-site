@@ -8,7 +8,7 @@ define([],
 				},
 				"mainMenu" : {
 					"homePage"       : "Портфоліо",
-					"servicesPrices" : "Послуги &amp; Ціни",
+					"servicesPrices" : "Послуги",
 					"contacts"       : "Контакти"
 				},
 				"subMenu" : {
