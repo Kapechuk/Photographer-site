@@ -1,12 +1,13 @@
 require.config({
 	baseUrl: './',
-	paths: {
-		'text': 'libs/text',
-		'jquery': 'libs/jquery-2.1.1.min',
-		'underscore': 'libs/underscore-min',
-		'backbone': 'libs/backbone-min',
-		'bootstrap': 'libs/bootstrap.min',
-		'app': 'app'
+	paths : {
+		'text'       : 'libs/text',
+		'jquery'     : 'libs/jquery-2.1.1.min',
+		'underscore' : 'libs/underscore-min',
+		'backbone'   : 'libs/backbone-min',
+		'bootstrap'  : 'libs/bootstrap.min',
+		'masonry'    : 'libs/masonry.pkgd.min',
+		'app'        : 'app'
 	},
 	shim: {
 		'backbone': {
