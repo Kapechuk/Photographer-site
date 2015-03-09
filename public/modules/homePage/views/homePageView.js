@@ -23,7 +23,7 @@ define([
 
 				ImagesLoaded( container, function() {
 					var msnry = new Masonry( container, {
-						columnWidth: 236,
+						columnWidth: 315,
 						itemSelector: '.photo'
 					});
 					$('.masonry-container').find('img').lazyload({

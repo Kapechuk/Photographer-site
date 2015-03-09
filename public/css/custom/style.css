@@ -1,3 +1,6 @@
+
+/*layout styles begin*/
+
 html, body{
     margin:0;
     padding:0;
@@ -103,3 +106,34 @@ footer a{
     color:#33849b;
 }
 
+/*layout styles end*/
+
+
+
+
+
+.masonry-container {
+    padding-top: 5px;
+}
+
+.photo {
+    padding: 5px;
+}
+
+@media (min-width:992px)  and (max-width: 1200px){
+    .masonry-container.col-md-8 {
+        width: 68.5%;
+    }
+}
+
+@media (min-width: 768px) and (max-width:991px) {
+    .masonry-container.col-sm-12 {
+        margin-left: 6%;
+    }
+}
+
+@media (max-width:767px) {
+    .masonry-container.col-sm-12 {
+        margin-left: 4%;
+    }
+}
