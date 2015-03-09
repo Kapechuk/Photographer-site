@@ -2,9 +2,11 @@ define([
 		'backbone',
 		'app',
 		'text!modules/homePage/templates/homePageTemplate.html',
-		'masonry'
+		'masonry',
+		'imagesLoaded',
+		'lazyload'
 	],
-	function(Backbone, App, homePageTemplate, Masonry) {
+	function(Backbone, App, homePageTemplate, Masonry, ImagesLoaded, Lazyload) {
 		App.HomePageView = Backbone.View.extend({
 			initialize : function () {
 
@@ -17,11 +19,17 @@ define([
 			},
 
 			msnrGridLayoutRender : function () {
-				var msnry = new Masonry( '.masonry-container', {
-					columnWidth: 200,
-					itemSelector: '.item'
+				var container = $('.masonry-container')[0];
+
+				ImagesLoaded( container, function() {
+					var msnry = new Masonry( container, {
+						columnWidth: 236,
+						itemSelector: '.photo'
+					});
+					$('.masonry-container').find('img').lazyload({
+						effect : "fadeIn"
+					});
 				});
-				console.log(msnry);
 			}
 		});
 		return App.HomePageView
