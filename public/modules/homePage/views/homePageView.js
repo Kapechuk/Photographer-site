@@ -14,8 +14,13 @@ define([
 			template: _.template(homePageTemplate),
 			render: function () {
 				this.$el.html(this.template(App.messages));
+				this.previewImgGridRender();
 				this.msnrGridLayoutRender(Masonry);
 				return this;
+			},
+
+			previewImgGridRender : function () {
+
 			},
 
 			msnrGridLayoutRender : function () {
