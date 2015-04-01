@@ -1,6 +1,20 @@
 var express = require('express');
 var app = express();
+var path = require('path');
+var fs = require('fs');
 var jade = require('jade');
+var extensions = {
+	'js'   : 'text/javascript',
+	'css'  : 'text/css',
+	'txt'  : 'text/plain',
+	'xml'  : 'application/xml',
+	'jpg'  : 'image/jpg',
+	'jpeg' : 'image/jpeg',
+	'json' : 'application/json',
+	'gif'  : 'image/gif',
+	'png'  : 'image/png',
+	'svg'  : 'image/xml+svg'
+};
 
 app.set('port', (process.env.PORT || 3000));
 app.use(express.static(__dirname + '/public'));
@@ -13,59 +27,103 @@ app.get('/', function(request, response) {
 	response.send(html);
 });
 
-app.listen(app.get('port'), function() {
-	console.log("Node app is running at localhost:" + app.get('port'));
-});
-
-
-
-
-
-
-// Custom methods
-
-app.prototype.onHtmlRequestHandler = function (request, response) {
-	var filePath = this.getFilePath(request.url);
+app.get('/db/galleries', function(request, response) {
+	var filePath = app.getFilePath(request.url);
 	var contentType = extensions[path.extname(filePath).substr(1)];
 	var method = request.method;
 	console.log('onHtmlRequestHandler... request.url: ' + request.url);
 
 	console.log('onHtmlRequestHandler... getting: ' + filePath);
-	if (!request.url.indexOf('/static/galleries/')) {
+	if (method === 'POST'){
+		app.saveItem(request, response);
+	} else{
+		app.getItems(request, response);
+	}
+});
+
+app.get('/db/galleries/:item', function (request, response) {
+	var filePath = app.getFilePath(request.url);
+	var contentType = extensions[path.extname(filePath).substr(1)];
+	var method = request.method;
+	console.log('onHtmlRequestHandler... request.url: ' + request.url);
+
+	console.log('onHtmlRequestHandler... getting: ' + filePath);
+	if (!request.url.indexOf('/db/galleries/')) {
 		switch (method) {
 			case 'GET'    :
-				this.getItem(request, response);
+				app.getItem(request, response);
 				break;
 			case 'DELETE' :
-				this.deleteItem(request, response);
+				app.deleteItem(request, response);
 				break;
 			case 'POST'   :
 			case 'PUT'    :
 			case 'UPDATE' :
-				this.saveItem(request, response);
+				app.saveItem(request, response);
 				break;
 		}
-		return;
 	}
+});
 
-	if (!request.url.indexOf('/static/galleries')) {
-		if (method === 'POST'){
-			this.saveItem(request, response);
-		} else{
-			this.getItems(request, response);
-		}
-		return;
+
+app.listen(app.get('port'), function() {
+	console.log("Node app is running at localhost:" + app.get('port'));
+});
+
+app.getFilePath = function (url) {
+	var filePath = url;
+	if (url == '/') {
+		filePath = 'index.html';
+	} else {
+		filePath = url.substr(1);
 	}
+	console.log("url: " + filePath);
 
-	this.sendHTML(filePath, contentType, response);
+	return filePath;
 };
+
+/**
+ * Return Array of Items
+ * @param req Request
+ * @param res Response
+ */
+app.getItems = function (req, res) {
+	var arr = [];
+	var url = 'public' +  req.url;
+
+	var files = fs.readdirSync(url);
+
+	for (var i = 0; i < files.length; i++) {
+		arr.push(JSON.parse(fs.readFileSync(url + '/' + files[i])));
+	}
+	res.writeHead(200, {
+		'Content-Type' : 'application/json' || 'text/plain'
+	});
+
+	if (req.method === 'HEAD') {
+		res.end();
+	}
+	else {
+		res.write(JSON.stringify(arr), 'utf8');
+		res.end();
+	}
+};
+
+
+
+
+
+
+
+
+
 
 /**
  * Will delete item from file system
  * @param req Request
  * @param res Response
  */
-app.prototype.deleteItem = function (req, res) {
+app.deleteItem = function (req, res) {
 	var url = __dirname + req.url + '.json';
 	var me = this;
 
@@ -90,39 +148,13 @@ app.prototype.deleteItem = function (req, res) {
 		}
 	});
 }
-/**
- * Return Array of Items
- * @param req Request
- * @param res Response
- */
-app.prototype.getItems = function (req, res) {
-	var arr = [];
-	var url = req.url.substr(1);
 
-	var files = fs.readdirSync(url);
-
-	for (var i = 0; i < files.length; i++) {
-		arr.push(JSON.parse(fs.readFileSync(url + '/' + files[i])));
-	}
-	res.writeHead(200, {
-		'Content-Type' : 'application/json' || 'text/plain'
-	});
-
-	if (req.method === 'HEAD') {
-		res.end();
-		return;
-	}
-	else {
-		res.write(JSON.stringify(arr), 'utf8');
-		res.end();
-	}
-}
 /**
  * Will save file to file system.
  * @param req Request
  * @param res Response
  */
-app.prototype.saveItem = function (req, res) {
+app.saveItem = function (req, res) {
 	var me = this;
 	var reqBody = '';
 	var url = req.url.substr(1) + '.json';
@@ -181,12 +213,12 @@ app.prototype.saveItem = function (req, res) {
  * @param req Request
  * @param res Response
  */
-app.prototype.getItem = function (req, res) {
-	var url = __dirname + req.url + '.json';
+app.getItem = function (req, res) {
+	var url = __dirname + '/public' + req.url + '.json';
 	var me = this;
 	var item;
 
-	url = url.replace('/', '\\');
+	url = url.replace(/\\/g, '/');
 
 	fs.exists(url, function (exists) {
 		if (exists) {
@@ -207,7 +239,7 @@ app.prototype.getItem = function (req, res) {
  * @param {Integer} id. Id to item
  * @return {Object} Item
  */
-app.prototype.addIdNumber = function (body, id){
+app.addIdNumber = function (body, id){
 	var val = JSON.parse(body);
 
 	if (val.id === undefined || val.id === null){
@@ -220,7 +252,7 @@ app.prototype.addIdNumber = function (body, id){
  * @param req Request
  * @param res Response
  */
-app.prototype.sendNotImplemented = function (req, res) {
+app.sendNotImplemented = function (req, res) {
 	var reqBody = '<div>' + req.method + ' isn\'t implemented yet!</div>';
 	res.writeHead(200, {
 		'Content-Type' : 'text/html'
@@ -234,7 +266,7 @@ app.prototype.sendNotImplemented = function (req, res) {
  * @param {String} url
  * @param res Response
  */
-app.prototype.sendMissing = function (url, res) {
+app.sendMissing = function (url, res) {
 	res.writeHead(404, {
 		'Content-Type' : 'text/html'
 	});
@@ -251,7 +283,7 @@ app.prototype.sendMissing = function (url, res) {
  * @param res Response
  * @param {String} error Error message
  */
-app.prototype.sendError = function (url, res, error) {
+app.sendError = function (url, res, error) {
 	res.writeHead(500, {
 		'Content-Type' : 'text/html'
 	});
@@ -261,4 +293,11 @@ app.prototype.sendError = function (url, res, error) {
 	res.write('<pre>' + escapeHtml(error) + '</pre>');
 	res.end();
 	console.log('Internal Server Error!')
+};
+
+function escapeHtml(value) {
+	return value.toString().
+		replace('<', '&lt;').
+		replace('>', '&gt;').
+		replace('"', '&quot;');
 }

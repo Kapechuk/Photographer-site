@@ -8,11 +8,10 @@ define([
 
 			},
 
-			urlRoot: "/static/galleries/",
+			urlRoot: "/db/galleries/",
 			setUrl: function(id) {
 				this.url = this.urlRoot + id;
 			}
-
 		});
 		return App.GalleryPreviewImgModel
 	});

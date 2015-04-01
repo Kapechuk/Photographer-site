@@ -4,12 +4,17 @@ define([
 		'text!modules/homePage/templates/homePageTemplate.html',
 		'masonry',
 		'imagesLoaded',
-		'lazyload'
+		'lazyload',
+		'modules/homePage/collections/galleryPreviewImgCollection',
+		'modules/homePage/views/galleryPreviewImgViews'
 	],
-	function(Backbone, App, homePageTemplate, Masonry, ImagesLoaded, Lazyload) {
+	function(Backbone, App, homePageTemplate, Masonry, ImagesLoaded, Lazyload, GalleryPreviewImgCollection, GalleryPreviewImgViews) {
 		App.HomePageView = Backbone.View.extend({
 			initialize : function () {
-
+				this.galleryPreviewImgCollection = new GalleryPreviewImgCollection();
+				this.galleryPreviewImgViews = new GalleryPreviewImgViews({
+					collection : this.galleryPreviewImgCollection
+				});
 			},
 			template: _.template(homePageTemplate),
 			render: function () {
@@ -20,7 +25,8 @@ define([
 			},
 
 			previewImgGridRender : function () {
-
+				this.galleryPreviewImgCollection.fetch();
+				this.galleryPreviewImgViews.render();
 			},
 
 			msnrGridLayoutRender : function () {

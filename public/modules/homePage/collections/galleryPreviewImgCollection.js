@@ -6,7 +6,7 @@ define([
 	function (Backbone, App, GalleryPreviewImgModel) {
 		App.GalleryPreviewImgCollection = Backbone.Collection.extend({
 			model: GalleryPreviewImgModel,
-			url: '/static/galleries'
+			url: '/db/galleries'
 		});
 
 		return App.GalleryPreviewImgCollection;
