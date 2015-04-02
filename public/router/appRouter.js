@@ -5,11 +5,12 @@ define(['backbone', 'app'],
 				this.addHandlers();
 			},
 			routes : {
-				''              : 'showMainPage',
-				'home'          : 'showMainPage',
-				'wed_service'   : 'showWedServicePage',
-				'school_albums' : 'showSchoolAlbumsPage',
-				'contacts'      : 'showContactsPage'
+				''                          : 'showMainPage',
+				'home'                      : 'showMainPage',
+				'wed_service'               : 'showWedServicePage',
+				'school_albums'             : 'showSchoolAlbumsPage',
+				'contacts'                  : 'showContactsPage',
+				'galleries/gallery-:number' : 'showGallery'
 			},
 			
 			showMainPage : function () {
@@ -36,10 +37,12 @@ define(['backbone', 'app'],
 				this.navigate('contacts')
 			},
 
+			showGallery : function (galleryNumber) {
+				debugger;
+			},
 
 			navigateTo : function (route, options) {
 				options = options || {};
-
 				this.navigate(route, options);
 			},
 

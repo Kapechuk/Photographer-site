@@ -1,5 +1,6 @@
 {
-  "fileName" : "16.jpg",
-  "path" : "static/galleries/",
-  "id" : 16
+  "fileName"    : "16.jpg",
+  "path"        : "static/galleries/",
+  "galleryPath" : "galleries/gallery-",
+  "id"          : 16
 }
