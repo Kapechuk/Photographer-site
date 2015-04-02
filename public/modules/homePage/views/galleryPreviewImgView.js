@@ -10,10 +10,13 @@ define([
 
 			},
 			render: function () {
-				var $img = $('<img/>', {
-					url: this.model.url
-				});
+				var $img = $('<img/>', {});
+				var path = this.model.get('path') + this.model.get('fileName');
+				$img.attr('data-original', path);
+				$img.attr('height', 230);
+				$img.attr('width', 305);
 				this.$el.append($img);
+				return this;
 			}
 
 		});

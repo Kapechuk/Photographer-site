@@ -109,7 +109,22 @@ app.getItems = function (req, res) {
 	}
 };
 
-
+/**
+ * Will send 404 not found message.
+ * @param {String} url
+ * @param res Response
+ */
+app.sendMissing = function (url, res) {
+	res.writeHead(404, {
+		'Content-Type' : 'text/html'
+	});
+	res.write('<!doctype html>\n');
+	res.write('<title>404 Not Found</title>\n');
+	res.write('<h1>Not Found</h1>');
+	res.write('<p>The requested URL ' + escapeHtml(url) + ' was not found on this server.</p>');
+	res.end();
+	console.log('File not found!');
+}
 
 
 
@@ -261,22 +276,7 @@ app.sendNotImplemented = function (req, res) {
 	res.end();
 	console.log(req.method + ' isn\'t implemented yet!');
 }
-/**
- * Will send 404 not found message.
- * @param {String} url
- * @param res Response
- */
-app.sendMissing = function (url, res) {
-	res.writeHead(404, {
-		'Content-Type' : 'text/html'
-	});
-	res.write('<!doctype html>\n');
-	res.write('<title>404 Not Found</title>\n');
-	res.write('<h1>Not Found</h1>');
-	res.write('<p>The requested URL ' + escapeHtml(url) + ' was not found on this server.</p>');
-	res.end();
-	console.log('File not found!');
-}
+
 /**
  * Will send 500 error message.
  * @param {String} url

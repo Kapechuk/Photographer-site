@@ -20,13 +20,16 @@ define([
 			render: function () {
 				this.$el.html(this.template(App.messages));
 				this.previewImgGridRender();
-				this.msnrGridLayoutRender(Masonry);
 				return this;
 			},
 
 			previewImgGridRender : function () {
-				this.galleryPreviewImgCollection.fetch();
-				this.galleryPreviewImgViews.render();
+				var that = this;
+				this.galleryPreviewImgViews.setElement('.masonry-container');
+				this.galleryPreviewImgCollection.reset();
+				this.galleryPreviewImgCollection.fetch().then(function() {
+					that.msnrGridLayoutRender(Masonry);
+				});
 			},
 
 			msnrGridLayoutRender : function () {
