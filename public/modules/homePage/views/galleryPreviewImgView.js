@@ -31,7 +31,7 @@ define([
 			},
 
 			openGallery: function () {
-				var route = this.model.get('galleryPath') + this.model.get('id');
+				var route = this.model.get('galleryUrl') + this.model.get('id');
 				App.vent.trigger('change:route', route, { trigger: true });
 			}
 

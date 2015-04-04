@@ -38,7 +38,8 @@ define(['backbone', 'app'],
 			},
 
 			showGallery : function (galleryNumber) {
-				debugger;
+				console.log('Gallery ' + galleryNumber);
+				App.mainController.showGallery(galleryNumber);
 			},
 
 			navigateTo : function (route, options) {

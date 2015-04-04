@@ -76,6 +76,11 @@ define([
 				self.wedServiceView.render()
 			};
 
+			self.showGallery = function (galleryNumber) {
+				self.layoutRemove();
+				$('.main-content').empty();
+			};
+
 			init();
 		};
 		return App.mainAppController;

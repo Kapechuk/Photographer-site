@@ -110,7 +110,7 @@ footer a{
 
 
 
-
+/*Home page begin*/
 
 .masonry-container {
     padding-top: 5px;
@@ -118,6 +118,15 @@ footer a{
 
 .photo {
     padding: 5px;
+}
+
+.photo img:hover {
+    box-shadow:0 0 10px  1px #0d0d0d;
+    -webkit-transition:box-shadow 0.35s ease;
+    -moz-transition:box-shadow 0.35s ease;
+    -o-transition:box-shadow 0.35s ease;
+    -ms-transition:box-shadow 0.35s ease;
+    transition:box-shadow 0.35s ease;
 }
 
 @media (min-width:992px)  and (max-width: 1200px){
@@ -137,3 +146,5 @@ footer a{
         margin-left: 4%;
     }
 }
+
+/*Home page end*/
