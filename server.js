@@ -16,6 +16,8 @@ var extensions = {
 	'svg'  : 'image/xml+svg'
 };
 
+/*mongodb://<dbuser>:<dbpassword>@ds055680.mongolab.com:55680/tetiana_semak_db*/
+
 app.set('port', (process.env.PORT || 3000));
 app.use(express.static(__dirname + '/public'));
 

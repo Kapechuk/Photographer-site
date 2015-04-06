@@ -52,26 +52,35 @@ define([
 				}
 			};
 
+			self.toggleMainContainerClassName = function(pageClassName) {
+				var newClassName = App.messages.mainContentContainerClassName + ' ' + pageClassName;
+				self.selectors.mainContent.removeClass().addClass(newClassName);
+			};
+
 			self.showMainPage = function () {
 				self.layoutRender();
+				self.toggleMainContainerClassName(App.messages.home_page.pageContentContainerClassName);
 				self.homePageView.setElement(self.selectors.mainContent);
 				self.homePageView.render();
 			};
 
 			self.showContactsPage = function () {
 				self.layoutRender();
+				self.toggleMainContainerClassName(App.messages.contacts.pageContentContainerClassName);
 				self.contactsView.setElement(self.selectors.mainContent);
 				self.contactsView.render();
 			};
 
 			self.showSchoolAlbumsPage = function () {
 				self.layoutRender();
+				self.toggleMainContainerClassName(App.messages.school_albums.pageContentContainerClassName);
 				self.schoolAlbumsView.setElement(self.selectors.mainContent);
 				self.schoolAlbumsView.render();
 			};
 
 			self.showWedServicePage = function () {
 				self.layoutRender();
+				self.toggleMainContainerClassName(App.messages.wed_service.pageContentContainerClassName);
 				self.wedServiceView.setElement(self.selectors.mainContent);
 				self.wedServiceView.render()
 			};

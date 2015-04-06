@@ -1,24 +1,26 @@
 <div class="about_me">
-    <img src="contacts/images/photo.jpg" id="photo" alt="Me" height="270" width="343"/>
-    <p id="text"><%= contacts.greetingText %></p>
-    <div id="contacts">
-        <h4>Мої Контакти:</h4>
-                    <span id="mail" class="cont">
-                    	<i class="icon_mail"><img src="contacts/pics/mail.png" height="20" width="20"/></i>
-                        <a href="<%= contacts.myContacts.mailTo %>"><%= contacts.myContacts.mail %></a>
-                    </span>
-                    <span id="vk" class="cont">
-                    	<i class="icon_vk"><img src="contacts/pics/vk1.png" height="20" width="20"/></i>
-                        <a href="<%= contacts.myContacts.vkLink %>" target="_blank"><%= contacts.myContacts.vk %></a>
-                    </span>
-                    <span id="blog" class="cont">
-                    	<i class="icon_blog"><img src="contacts/pics/blogspot.png" height="20" width="20"/></i>
-                    	<a href="<%= contacts.myContacts.blogLink %>" target="_blank"><%= contacts.myContacts.blog %></a>
-                    </span>
-                    <span id="phone" class="cont">
-                    	<i class="icon_phone"><img src="contacts/pics/phone.png" height="20" width="20"/></i>
-                        <a><%= contacts.myContacts.phone %></a>
-                    </span>
+    <img src="modules/contacts/images/contacts_photo.jpg" id="photo" alt="Me" height="347" width="270"/>
+    <div class="info-box">
+        <p id="text"><%= contacts.greetingText %></p>
+        <div id="contacts">
+            <h4>Мої Контакти:</h4>
+        <span id="mail" class="cont">
+            <i class="icon_mail"><img src="modules/contacts/images/pics/mail.png" height="20" width="20"/></i>
+            <a href="<%= contacts.myContacts.mailTo %>"><%= contacts.myContacts.mail %></a>
+        </span>
+        <span id="vk" class="cont">
+            <i class="icon_vk"><img src="modules/contacts/images/pics/vk1.png" height="20" width="20"/></i>
+            <a href="<%= contacts.myContacts.vkLink %>" target="_blank"><%= contacts.myContacts.vk %></a>
+        </span>
+        <span id="blog" class="cont">
+            <i class="icon_blog"><img src="modules/contacts/images/pics/blogspot.png" height="20" width="20"/></i>
+            <a href="<%= contacts.myContacts.blogLink %>" target="_blank"><%= contacts.myContacts.blog %></a>
+        </span>
+        <span id="phone" class="cont">
+            <i class="icon_phone"><img src="modules/contacts/images/pics/phone.png" height="20" width="20"/></i>
+            <a><%= contacts.myContacts.phone %></a>
+        </span>
+        </div>
     </div>
     <div class="ref-box">
         <p><b><%= contacts.refBox.recServices %></b></p>
@@ -28,14 +30,14 @@
                 <a class="vk" href="<%= contacts.refBox.services.filmarkLinkVk %>"><%= contacts.refBox.services.filmarkLinkVk %></a> <br>
                 <a class="site" href="http://filmark.com.ua">filmark.com.ua</a>
             </div>
-            <a class="img" href="http://filmark.com.ua"><img src="contacts/pics/filmark.jpg" alt="filmark"></a>
+            <a class="img" href="http://filmark.com.ua"><img src="modules/contacts/images/pics/filmark.jpg" alt="filmark"></a>
         </div>
         <div class="decor-ref">
             <div>
                 <span>-"Мя'та"-декор, флористика</span>
                 <a class="vk" href="http://vk.com/myatadecor">http://vk.com/myatadecor</a>
             </div>
-            <a class="img" href="http://vk.com/myatadecor"><img src="contacts/pics/myata.jpg" alt="Myata"></a>
+            <a class="img" href="http://vk.com/myatadecor"><img src="modules/contacts/images/pics/myata.jpg" alt="Myata"></a>
         </div>
         <div class="vis-ref">
             <div>

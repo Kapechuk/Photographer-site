@@ -112,15 +112,16 @@ footer a{
 
 /*Home page begin*/
 
-.masonry-container {
+.home-page .masonry-container {
     padding-top: 5px;
 }
 
-.photo {
+.home-page .photo {
     padding: 5px;
 }
 
-.photo img:hover {
+.home-page .photo img:hover {
+    cursor: pointer;
     box-shadow:0 0 10px  1px #0d0d0d;
     -webkit-transition:box-shadow 0.35s ease;
     -moz-transition:box-shadow 0.35s ease;
@@ -130,21 +131,179 @@ footer a{
 }
 
 @media (min-width:992px)  and (max-width: 1200px){
-    .masonry-container.col-md-8 {
+    .home-page .masonry-container.col-md-8 {
         width: 68.5%;
     }
 }
 
 @media (min-width: 768px) and (max-width:991px) {
-    .masonry-container.col-sm-12 {
+    .home-page .masonry-container.col-sm-12 {
         margin-left: 6%;
     }
 }
 
 @media (max-width:767px) {
-    .masonry-container.col-sm-12 {
+    .home-page .masonry-container.col-sm-12 {
         margin-left: 4%;
     }
 }
 
 /*Home page end*/
+
+
+/*Contacts page begin*/
+
+.contacts .about_me {
+    margin-top:30px;
+    font-size:15px;
+    color:grey;
+    font-family: Constantia, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+    position:relative;
+    padding:0;
+}
+
+.contacts .about_me a {
+    text-decoration:none;
+    color:#33849b;
+    display:inline-block;
+    line-height:20px;
+    vertical-align:top;
+    height:20px;
+}
+
+.contacts #photo {
+    position: relative;
+    right:300px;
+}
+.contacts #text{
+    position:relative;
+    text-align:left;
+    bottom:250px;
+    width:400px;
+    margin-right:0;
+    left:580px;
+}
+.contacts h4 {
+    color:#666;
+    margin-bottom:15px;
+}
+.contacts span{
+    display:block;
+}
+.contacts #contacts{
+    position:relative;
+    text-align:left;
+    left:580px;
+    width:220px;
+    bottom:235px;
+}
+
+.contacts .cont {
+    line-height:20px;
+    vertical-align:middle;
+    height:20px;
+    vertical-align:top;
+}
+.contacts .ref-box {
+    margin-top: -180px;
+}
+
+.contacts .ref-box a {
+    display:block;
+}
+
+.contacts .ref-box p {
+    width: 200px;
+    margin-left: 120px
+}
+
+.contacts .ref-box span {
+    display: inline-block;
+}
+
+.contacts .video-ref, .vis-ref, .decor-ref {
+    width: 450px;
+
+}
+
+.contacts .video-ref {
+    text-align: left;
+    margin-left: 130px;
+}
+
+.contacts .video-ref a {
+    display: inline;
+}
+
+.contacts .video-ref .site {
+    margin-left: 130px;
+}
+
+.contacts .video-ref div {
+    margin-top: 50px;
+    width: 260px;
+}
+
+.contacts .video-ref .img {
+    float: right;
+    position: relative;
+    left: -20px;
+    bottom: 95px;
+    height: 150px;
+}
+
+.contacts .video-ref img {
+    width: 150px;
+    height: 150px;
+}
+
+.contacts .decor-ref {
+    position: relative;
+    left: 600px;
+    bottom: 90px
+}
+
+.contacts .decor-ref a {
+    display: inline;
+}
+
+.contacts .decor-ref .site {
+    margin-left: 130px;
+}
+
+.contacts .decor-ref div {
+    margin-top: 50px;
+    width: 260px;
+}
+
+.contacts .decor-ref .vk {
+    margin-left: 10px;
+}
+
+.contacts .decor-ref .img {
+    float: right;
+    position: relative;
+    bottom: 110px;
+    left: 10px;
+    height: 180px;
+}
+
+.contacts .vis-ref {
+    margin-top: 20px;
+}
+
+.contacts .vis-ref  div{
+    position: relative;
+    left: 60px;
+}
+
+.contacts .vis-ref a, .vis-ref span {
+    display: inline-block;
+}
+
+.contacts .vis-ref span {
+    position: relative;
+    bottom: 150px;
+}
+
+/*Contacts page end*/
