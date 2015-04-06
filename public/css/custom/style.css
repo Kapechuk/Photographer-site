@@ -171,17 +171,17 @@ footer a{
     height:20px;
 }
 
+.contacts .personal-info {
+    height: 347px;
+}
+
 .contacts #photo {
-    position: relative;
-    right:300px;
+    float: left;
+    margin-left: 150px;
 }
 .contacts #text{
-    position:relative;
     text-align:left;
-    bottom:250px;
-    width:400px;
-    margin-right:0;
-    left:580px;
+    padding-right: 20px;
 }
 .contacts h4 {
     color:#666;
@@ -191,21 +191,26 @@ footer a{
     display:block;
 }
 .contacts #contacts{
-    position:relative;
     text-align:left;
-    left:580px;
-    width:220px;
-    bottom:235px;
+    margin-top: 50px;
 }
 
 .contacts .cont {
-    line-height:20px;
-    vertical-align:middle;
-    height:20px;
-    vertical-align:top;
+
 }
+
+.contacts .info-box {
+    float: right;
+    max-width: 600px;
+    margin: 50px 95px 0 0;
+}
+
 .contacts .ref-box {
-    margin-top: -180px;
+    margin: 50px 0 0 150px;
+}
+
+.contacts .ref-box h4 {
+    text-align: left;
 }
 
 .contacts .ref-box a {

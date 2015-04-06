@@ -42,12 +42,12 @@ define([],
 					"vk"       : "vk.com/tetiana_semak",
 					"blogLink" : "http://tetianasemak.blogspot.com/",
 					"blog"     : "tetianasemak.blogspot.com",
-					"phone"    : "+380(99)917-05-58"
+					"phone"    : "(099)917-05-58"
 				},
 				"refBox" : {
 					"recServices" : "Рекомендовані послуги:",
 					"services" : {
-						"video" : " -Відеозйомка",
+						"video" : " Відеозйомка",
 						"filmarkLinkVk" : "http://vk.com/v_filmark"
 					}
 				}
