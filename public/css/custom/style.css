@@ -184,7 +184,7 @@ footer a{
     padding-right: 20px;
 }
 .contacts h4 {
-    color:#666;
+    color:#000;
     margin-bottom:15px;
 }
 .contacts span{
@@ -206,11 +206,14 @@ footer a{
 }
 
 .contacts .ref-box {
-    margin: 50px 0 0 150px;
+    margin: 50px 0 50px 150px;
+    text-align: left;
 }
 
 .contacts .ref-box h4 {
     text-align: left;
+    font-size: 18px;
+    margin-bottom: 40px;
 }
 
 .contacts .ref-box a {
@@ -218,8 +221,8 @@ footer a{
 }
 
 .contacts .ref-box p {
-    width: 200px;
-    margin-left: 120px
+    text-align: center;
+    font-size: 1.2em;
 }
 
 .contacts .ref-box span {
@@ -227,88 +230,74 @@ footer a{
 }
 
 .contacts .video-ref, .vis-ref, .decor-ref {
-    width: 450px;
-
+    width: 200px;
 }
 
 .contacts .video-ref {
+    display: inline-block;
     text-align: left;
-    margin-left: 130px;
+    margin-left: 65px;
 }
 
 .contacts .video-ref a {
-    display: inline;
+    text-align: center;
 }
 
-.contacts .video-ref .site {
-    margin-left: 130px;
+.contacts .video-ref .site, .contacts .video-ref .vk {
+    font-size: 1.2em;
+    margin-top: 10px;
 }
 
-.contacts .video-ref div {
-    margin-top: 50px;
-    width: 260px;
-}
 
 .contacts .video-ref .img {
-    float: right;
-    position: relative;
-    left: -20px;
-    bottom: 95px;
     height: 150px;
 }
 
 .contacts .video-ref img {
+    display: inline-block;
     width: 150px;
     height: 150px;
 }
 
 .contacts .decor-ref {
-    position: relative;
-    left: 600px;
-    bottom: 90px
+    display: inline-block;
+    text-align: left;
+    margin-left: 75px;
 }
 
 .contacts .decor-ref a {
-    display: inline;
+    text-align: center;
 }
 
-.contacts .decor-ref .site {
-    margin-left: 130px;
-}
-
-.contacts .decor-ref div {
-    margin-top: 50px;
-    width: 260px;
-}
 
 .contacts .decor-ref .vk {
-    margin-left: 10px;
+    font-size: 1.2em;
+    margin-top: 10px;
 }
 
 .contacts .decor-ref .img {
-    float: right;
-    position: relative;
-    bottom: 110px;
-    left: 10px;
     height: 180px;
-}
-
-.contacts .vis-ref {
-    margin-top: 20px;
-}
-
-.contacts .vis-ref  div{
-    position: relative;
-    left: 60px;
-}
-
-.contacts .vis-ref a, .vis-ref span {
     display: inline-block;
 }
 
-.contacts .vis-ref span {
-    position: relative;
-    bottom: 150px;
+.contacts .vis-ref {
+    display: inline-block;
+    text-align: left;
+    margin-left: 75px;
 }
+
+.contacts .vis-ref .vk {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+.contacts .vis-ref a {
+    text-align: center;
+}
+
+.contacts .vis-ref p {
+    margin-bottom: 200px;
+}
+
 
 /*Contacts page end*/

@@ -40,15 +40,14 @@ define([],
 					"mailTo"   : "mailto:tanja.semak@gmail.com",
 					"vkLink"   : "http://vk.com/tetiana_semak",
 					"vk"       : "vk.com/tetiana_semak",
-					"blogLink" : "http://tetianasemak.blogspot.com/",
-					"blog"     : "tetianasemak.blogspot.com",
 					"phone"    : "(099)917-05-58"
 				},
 				"refBox" : {
 					"recServices" : "Рекомендовані послуги:",
 					"services" : {
 						"video" : " Відеозйомка",
-						"filmarkLinkVk" : "http://vk.com/v_filmark"
+						"filmarkLinkVk" : "http://vk.com/v_filmark",
+						"decor" : "Декор, Флористика"
 					}
 				}
 			}
