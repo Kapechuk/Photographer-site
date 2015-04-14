@@ -44,12 +44,16 @@ define([],
 				},
 				"refBox" : {
 					"recServices" : "Рекомендовані послуги:",
-					"services" : {
-						"video" : " Відеозйомка",
+					"services"    : {
+						"video"         : " Відеозйомка",
 						"filmarkLinkVk" : "http://vk.com/v_filmark",
-						"decor" : "Декор, Флористика"
+						"decor"         : "Декор, Флористика",
+						"vizazh"        : "Візажист Вікторія Гута"
 					}
 				}
+			},
+			"gallery" : {
+				"pageContentContainerClassName" : "gallery"
 			}
 		};
 

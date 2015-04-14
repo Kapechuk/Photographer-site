@@ -6,7 +6,8 @@ define([
 		'modules/contacts/views/contactsView',
 		'modules/schoolAlbums/views/schoolAlbumsView',
 		'modules/wedService/views/wedServiceView',
-		'modules/homePage/views/homePageView'
+		'modules/homePage/views/homePageView',
+		'modules/gallery/views/galleryPageView'
 	],
 	function (
 		Backbone,
@@ -16,7 +17,8 @@ define([
 		ContactsView,
 		SchoolAlbumsView,
 		WedServiceView,
-		HomePageView) {
+		HomePageView,
+		GalleryPageView) {
 
 		App.mainAppController = function () {
 			var self = this;
@@ -87,7 +89,13 @@ define([
 
 			self.showGallery = function (galleryNumber) {
 				self.layoutRemove();
-				$('.main-content').empty();
+				self.selectors.mainContent.empty();
+				self.toggleMainContainerClassName(App.messages.gallery.pageContentContainerClassName);
+				self.galleryPageView = new GalleryPageView({
+					galleryNum : galleryNumber
+				});
+				self.galleryPageView.setElement(self.selectors.mainContent);
+				self.galleryPageView.render();
 			};
 
 			init();
