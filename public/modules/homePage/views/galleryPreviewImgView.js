@@ -23,7 +23,7 @@ define([
 
 			initElem: function () {
 				var $img = $('<img/>', {});
-				var path = this.model.get('path') + this.model.get('fileName');
+				var path = this.model.get('galleryPath') + "/titleImg/titleImg.jpg";
 				$img.attr('data-original', path);
 				$img.attr('height', 230);
 				$img.attr('width', 305);
