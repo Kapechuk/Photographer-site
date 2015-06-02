@@ -5,13 +5,14 @@ define([
 	],
 	function(Backbone, App, GalleryImageView) {
 		App.GalleryImagesView = Backbone.View.extend({
+			tagName: "div",
 			initialize: function () {
 				var that = this;
+				this.collection.setUrl();
 				this.collection.on('sync', function () {
 					that.render();
 				})
 			},
-			template: '',
 			render: function() {
 				this.$el.empty();
 				this.collection.each(function (img, index) {

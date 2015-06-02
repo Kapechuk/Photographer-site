@@ -7,11 +7,11 @@ define([
 	function(Backbone, App, GalleryImagesView, GalleryImagesCollection) {
 		App.GalleryPageView = Backbone.View.extend({
 			initialize: function () {
-				this.galleryImagesCollection = new GalleryImagesCollection({
-					galleryNum : this.galleryNum
-				});
-				this.galleryImagesView = new GalleryImagesView({
-					collection : this.galleryImagesCollection
+				var that = this;
+				that.galleryImagesCollection = new GalleryImagesCollection();
+				that.galleryImagesCollection.galleryNum = that.options.galleryNum;
+				that.galleryImagesView = new GalleryImagesView({
+					collection : that.galleryImagesCollection
 				});
 			},
 			template: '',

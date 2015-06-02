@@ -4,8 +4,8 @@ define([
 	],
 	function(Backbone, App) {
 		App.GalleryImageView = Backbone.View.extend({
-			tagName: '',
-			className: '',
+			tagName: 'div',
+			className: 'preview-photo',
 
 			events: {
 

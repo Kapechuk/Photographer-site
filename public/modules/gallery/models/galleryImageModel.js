@@ -8,7 +8,7 @@ define([
 
 			},
 
-			urlRoot: "",
+			urlRoot: 'static/galleries/gallery_' + this.galleryNum + '/preview',
 			setUrl: function(id) {
 				this.url = this.urlRoot + id;
 			}
