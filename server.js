@@ -3,6 +3,7 @@ var app = express();
 var path = require('path');
 var fs = require('fs');
 var jade = require('jade');
+var MongoClient = require('mongodb').MongoClient;
 var extensions = {
 	'js'   : 'text/javascript',
 	'css'  : 'text/css',
@@ -12,11 +13,11 @@ var extensions = {
 	'jpeg' : 'image/jpeg',
 	'json' : 'application/json',
 	'gif'  : 'image/gif',
-	'png'  : 'image/png',
+	'png'  : 'image/png',/**/
 	'svg'  : 'image/xml+svg'
 };
-
-/*mongodb://<dbuser>:<dbpassword>@ds055680.mongolab.com:55680/tetiana_semak_db*/
+// Connection URL
+var mongoUrl = 'mongodb://tetiana:semak@ds055680.mongolab.com:55680/tetiana_semak_db';
 
 app.set('port', (process.env.PORT || 3000));
 app.use(express.static(__dirname + '/public'));
@@ -90,25 +91,24 @@ app.getFilePath = function (url) {
  * @param res Response
  */
 app.getItems = function (req, res) {
-	var arr = [];
-	var url = 'public' +  req.url;
-
-	var files = fs.readdirSync(url);
-
-	for (var i = 0; i < files.length; i++) {
-		arr.push(JSON.parse(fs.readFileSync(url + '/' + files[i])));
-	}
-	res.writeHead(200, {
-		'Content-Type' : 'application/json' || 'text/plain'
+	// Use connect method to connect to the Server
+	MongoClient.connect(mongoUrl, function(err, db) {
+		console.log("Connected correctly to server");
+		var collection = db.collection('galleries');
+		collection.find().toArray(function(err, docs) {
+			db.close();
+			res.writeHead(200, {
+				'Content-Type' : 'application/json' || 'text/plain'
+			});
+			if (req.method === 'HEAD') {
+				res.end();
+			}
+			else {
+				res.write(JSON.stringify(docs), 'utf8');
+				res.end();
+			}
+		});
 	});
-
-	if (req.method === 'HEAD') {
-		res.end();
-	}
-	else {
-		res.write(JSON.stringify(arr), 'utf8');
-		res.end();
-	}
 };
 
 /**
@@ -126,7 +126,7 @@ app.sendMissing = function (url, res) {
 	res.write('<p>The requested URL ' + escapeHtml(url) + ' was not found on this server.</p>');
 	res.end();
 	console.log('File not found!');
-}
+};
 
 
 

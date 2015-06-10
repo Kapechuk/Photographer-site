@@ -7,7 +7,8 @@
   },
   "dependencies": {
     "express": "~4.9.x",
-    "jade": "^1.9.2"
+    "jade": "^1.9.2",
+    "mongodb": "^2.0.33"
   },
   "devDependencies": {},
   "repository": {
