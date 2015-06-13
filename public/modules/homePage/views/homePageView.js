@@ -11,6 +11,7 @@ define([
 	function(Backbone, App, homePageTemplate, Masonry, ImagesLoaded, Lazyload, GalleryPreviewImgCollection, GalleryPreviewImgViews) {
 		App.HomePageView = Backbone.View.extend({
 			initialize : function () {
+				this.addEventListeners();
 				this.galleryPreviewImgCollection = new GalleryPreviewImgCollection();
 				this.galleryPreviewImgViews = new GalleryPreviewImgViews({
 					collection : this.galleryPreviewImgCollection
@@ -25,9 +26,11 @@ define([
 
 			previewImgGridRender : function () {
 				var that = this;
+				this.trigger('loading:start');
 				this.galleryPreviewImgViews.setElement('.masonry-container');
 				this.galleryPreviewImgCollection.reset();
 				this.galleryPreviewImgCollection.fetch().then(function() {
+					that.trigger('loading:stop');
 					that.msnrGridLayoutRender(Masonry);
 				});
 			},
@@ -44,6 +47,19 @@ define([
 						effect : "fadeIn"
 					});
 				});
+			},
+
+			startLoading: function () {
+				$('.spinner').show();
+			},
+
+			stopLoading: function () {
+				$('.spinner').hide();
+			},
+
+			addEventListeners: function () {
+				this.on('loading:start', this.startLoading, this);
+				this.on('loading:stop', this.stopLoading, this);
 			}
 		});
 		return App.HomePageView
