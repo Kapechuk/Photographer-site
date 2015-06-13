@@ -39,7 +39,9 @@ define([
 			self.layoutRender = function() {
 				if(!self.layoutRenderedFlag){
 					self.headerView.insertElem();
+					self.headerView.delegateEvents();
 					self.footerView.insertElem();
+					self.footerView.delegateEvents();
 					self.layoutRenderedFlag = true;
 				}
 			};
