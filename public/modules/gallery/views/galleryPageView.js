@@ -1,18 +1,15 @@
 define([
    'backbone',
 	'app',
-	'modules/gallery/views/galleryImagesView',
-	'modules/gallery/collections/galleryImagesCollections'
+	'modules/gallery/views/galleryView',
+	'modules/gallery/models/galleryModel'
 	],
-	function(Backbone, App, GalleryImagesView, GalleryImagesCollection) {
+	function(Backbone, App, GalleryView, GalleryModel) {
 		App.GalleryPageView = Backbone.View.extend({
 			initialize: function () {
 				var that = this;
-				that.galleryImagesCollection = new GalleryImagesCollection();
-				that.galleryImagesCollection.galleryNum = that.options.galleryNum;
-				that.galleryImagesView = new GalleryImagesView({
-					collection : that.galleryImagesCollection
-				});
+				that.galleryModel = new GalleryModel({galleryNum : that.options.galleryNum});
+				that.galleryView = new GalleryView({model : that.galleryModel});
 			},
 			template: '',
 			render: function() {

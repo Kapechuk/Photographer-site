@@ -112,6 +112,40 @@ app.getItems = function (req, res) {
 };
 
 /**
+ * Return Item
+ * @param req Request
+ * @param res Response
+ */
+app.getItem = function (req, res) {
+	var item;
+	var galleryNum = path.basename(req.url);
+	galleryNum = parseInt(galleryNum);
+
+	// Use connect method to connect to the Server
+	MongoClient.connect(mongoUrl, function(err, db) {
+		console.log("Connected correctly to server");
+		var collection = db.collection('galleries');
+		collection.find({id:galleryNum}).toArray(function(err, doc) {
+			var intCount = doc.length;
+			db.close();
+			for (var i = 0; i < intCount; i++){
+				item = doc[i];
+			}
+			res.writeHead(200, {
+				'Content-Type' : 'application/json' || 'text/plain'
+			});
+			if (req.method === 'HEAD') {
+				res.end();
+			}
+			else {
+				res.write(JSON.stringify(item), 'utf8');
+				res.end();
+			}
+		});
+	});
+};
+
+/**
  * Will send 404 not found message.
  * @param {String} url
  * @param res Response
@@ -225,31 +259,7 @@ app.saveItem = function (req, res) {
 		});
 	});
 }
-/**
- * Return Item
- * @param req Request
- * @param res Response
- */
-app.getItem = function (req, res) {
-	var url = __dirname + '/public' + req.url + '.json';
-	var me = this;
-	var item;
 
-	url = url.replace(/\\/g, '/');
-
-	fs.exists(url, function (exists) {
-		if (exists) {
-			item = fs.readFileSync(url);
-			res.writeHead(200, {
-				'Content-Type' : 'application/json'
-			});
-			res.write(JSON.stringify(JSON.parse(item)));
-			res.end();
-		} else {
-			me.sendMissing(url, res);
-		}
-	});
-}
 /**
  * Will add ID to item if not exist
  * @param {String} body. Item body

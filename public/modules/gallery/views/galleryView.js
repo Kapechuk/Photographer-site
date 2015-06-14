@@ -3,16 +3,19 @@ define([
 		'app'
 	],
 	function(Backbone, App) {
-		App.GalleryImageView = Backbone.View.extend({
+		App.GalleryView = Backbone.View.extend({
 			tagName: 'div',
-			className: 'preview-photo',
+			className: 'gallery',
 
 			events: {
 
 			},
 
 			initialize : function () {
-
+				var that = this;
+				this.model.fetch().success(function () {
+					console.log(that.model.attributes)
+				});
 			},
 
 			render: function () {
@@ -23,6 +26,6 @@ define([
 			}
 
 		});
-		return App.GalleryImageView
+		return App.GalleryView
 	});
 
