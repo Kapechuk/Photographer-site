@@ -1,0 +1,15 @@
+<% _.each(photos, function(photo, num) { %>
+<li>
+    <div class="open" >
+        <img src="<%- previewPhotoUrl + photo %>" alt="image01">
+    </div>
+
+    <div class="lb-overlay" id="image-<%- num + 1 %>">
+        <img src="<%- fullFormatPhotoUrl + photo %>" alt="image01">
+
+        <div>
+        </div>
+        <div class="lb-close">x Close</div>
+    </div>
+</li>
+<% }) %>

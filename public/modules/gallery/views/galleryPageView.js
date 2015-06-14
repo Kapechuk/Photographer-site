@@ -1,5 +1,5 @@
 define([
-   'backbone',
+    'backbone',
 	'app',
 	'modules/gallery/views/galleryView',
 	'modules/gallery/models/galleryModel'
@@ -9,9 +9,11 @@ define([
 			initialize: function () {
 				var that = this;
 				that.galleryModel = new GalleryModel({galleryNum : that.options.galleryNum});
-				that.galleryView = new GalleryView({model : that.galleryModel});
+				that.galleryView = new GalleryView({
+					model : that.galleryModel,
+					parent : that
+				});
 			},
-			template: '',
 			render: function() {
 
 			}

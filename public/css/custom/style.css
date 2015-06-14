@@ -304,5 +304,224 @@ footer a{
     margin-bottom: 200px;
 }
 
-
 /*Contacts page end*/
+
+
+
+
+/*Gallery page begin*/
+
+.lb-album{
+    display:inline-block;
+    position:relative;
+    list-style:none;
+    padding: 20px 0 0 40px;
+    width: 900px;
+    margin: 0 auto;
+    font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+
+}
+.lb-album li{
+    float: left;
+    margin: 10px;
+    position: relative;
+    display:block;
+}
+.lb-album li > a,
+.lb-album li > a img{
+    display: block;
+}
+
+
+.lb-album li > a span{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: 10px;
+    left: 10px;
+    text-align: center;
+    line-height: 150px;
+    color: rgba(27,54,81,0.8);
+    text-shadow: 0 1px 1px rgba(255,255,255,0.6);
+    font-size: 24px;
+    opacity: 0;
+    filter: alpha(opacity=0); /* internet explorer */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=0)"; /*IE8*/
+    /*background: rgb(241,210,194);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%, rgba(241,210,194,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,0.56)), color-stop(100%,rgba(241,210,194,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(241,210,194,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(241,210,194,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(241,210,194,1) 100%);
+    background: radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(241,210,194,1) 100%);
+    -webkit-transition: opacity 0.3s linear;
+    -moz-transition: opacity 0.3s linear;
+    -o-transition: opacity 0.3s linear;
+    -ms-transition: opacity 0.3s linear;
+    transition: opacity 0.3s linear;*/
+}
+.open {
+    cursor: pointer;
+}
+
+.open:hover{
+    box-shadow:0 0 10px  1px #0d0d0d;
+    -webkit-transition:box-shadow 0.3s ease;
+    -moz-transition:box-shadow 0.3s ease;
+    -o-transition:box-shadow 0.3s ease;
+    -ms-transition:box-shadow 0.3s ease;
+    transition:box-shadow 0.3s ease;
+}
+
+/*Градиент-бэкграунд за большой фоткой*/
+.lb-overlay{
+    width: 0;
+    height: 0;
+    position: fixed;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    padding: 0;
+    z-index: 99;
+    text-align: center;
+    background: rgb(83,83,82,1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%, rgba(83,83,82,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,0.56)), color-stop(100%,rgba(83,83,82,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(83,83,82,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(83,83,82,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(83,83,82,1) 100%);
+    background: radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(83,83,82,1) 100%);
+}
+/*Текст под большой Фото*/
+.lb-overlay > div{
+    position: relative;
+    color: rgba(27,54,81,0.8);
+    opacity: 0;
+    filter: alpha(opacity=0); /* internet explorer */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=0)"; /*IE8*/
+    width: 550px;
+    margin: 10px auto 0 auto;
+    text-shadow: 0 1px 1px rgba(255,255,255,0.6);
+    -webkit-transition: opacity 0.3s linear 1.3s;
+    -moz-transition: opacity 0.3s linear 1.3s;
+    -o-transition: opacity 0.3s linear 1.3s;
+    -ms-transition: opacity 0.3s linear 1.3s;
+    transition: opacity 0.3s linear 1.3s;
+}
+.lb-overlay div h3,
+.lb-overlay div p{
+    padding: 0px 20px;
+    width: 200px;
+    height: 60px;
+}
+.lb-overlay div h3{
+    font-size: 36px;
+    float: left;
+    text-align: right;
+    border-right: 1px solid rgba(27,54,81,0.4);
+}
+.lb-overlay div h3 span,
+.lb-overlay div p{
+    font-size: 16px;
+    font-family: Constantia, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+    font-style: italic;
+}
+.lb-overlay div h3 span{
+    display: block;
+    line-height: 6px;
+}
+.lb-overlay div p{
+    text-align: left;
+    float: left;
+    width: 260px;
+}
+.lb-overlay div.lb-close{
+    cursor: pointer;
+    background: rgba(27,54,81,0.8);
+    z-index: 1001;
+    color: #fff;
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    font-size: 15px;
+    line-height: 23px;
+    text-align: center;
+    width: 50px;
+    height: 23px;
+    overflow: hidden;
+    margin-left: -25px;
+    opacity: 0;
+    text-decoration:none;
+    vertical-align:middle;
+    border-radius:3px;
+    filter: alpha(opacity=0); /* internet explorer */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=0)"; /*IE8*/
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    -webkit-transition: opacity 0.3s linear 1.2s;
+    -moz-transition: opacity 0.3s linear 1.2s;
+    -o-transition: opacity 0.3s linear 1.2s;
+    -ms-transition: opacity 0.3s linear 1.2s;
+    transition: opacity 0.3s linear 1.2s;
+}
+.lb-overlay img{
+    /* height: 100%; For Opera max-height does not seem to work */
+    max-height: 100%;
+    position: relative;
+    -webkit-box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    -moz-box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 7px rgba(0,0,0,0.2);
+}
+.lb-overlay.target {
+    width: auto;
+    height: auto;
+    bottom: 0;
+    right: 0;
+    padding: 80px 100px 0 100px;
+}
+/*Скорость открытия большой Фото*/
+.lb-overlay.target img {
+    -webkit-animation: fadeInScale 1.1s ease;
+    -moz-animation: fadeInScale 1.1s ease;
+    -o-animation: fadeInScale 1.1s ease;
+    -ms-animation: fadeInScale 1.1s ease;
+    animation: fadeInScale 1.1s ease;
+}
+
+.lb-overlay.target div.lb-close,
+.lb-overlay.target > div{
+    opacity: 1;
+    filter: alpha(opacity=99); /* internet explorer */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=99)"; /*IE8*/
+}
+@-webkit-keyframes fadeInScale {
+    0% { -webkit-transform: scale(0.6); opacity: 0; }
+    100% { -webkit-transform: scale(1); opacity: 1; }
+}
+@-moz-keyframes fadeInScale {
+    0% { -moz-transform: scale(0.6); opacity: 0; }
+    100% { -moz-transform: scale(1); opacity: 1; }
+}
+@-o-keyframes fadeInScale {
+    0% { -o-transform: scale(0.6); opacity: 0; }
+    100% { -o-transform: scale(1); opacity: 1; }
+}
+@-ms-keyframes fadeInScale {
+    0% { -ms-transform: scale(0.6); opacity: 0; }
+    100% { -ms-transform: scale(1); opacity: 1; }
+}
+@keyframes fadeInScale {
+    0% { transform: scale(0.6); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/*
+	100% Height for Opera as the max-height seems to be ignored, not optimal for large screens
+	http://bricss.net/post/11230266445/css-hack-to-target-opera
+*/
+x:-o-prefocus, .lb-overlay img {
+    height: 100%;
+}
+
+/*Gallery page end*/

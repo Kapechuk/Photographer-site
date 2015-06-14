@@ -90,7 +90,7 @@ define([
 			};
 
 			self.showGallery = function (galleryNumber) {
-				self.layoutRemove();
+				self.layoutRender();
 				self.selectors.mainContent.empty();
 				self.toggleMainContainerClassName(App.messages.gallery.pageContentContainerClassName);
 				self.galleryPageView = new GalleryPageView({
