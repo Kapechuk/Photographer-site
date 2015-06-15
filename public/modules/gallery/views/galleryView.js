@@ -24,6 +24,11 @@ define([
 				this.closeFullFormatPhoto();
 				$(e.target).parent().siblings().addClass('target');
 			},
+			closeFullFormatPhoto: function () {
+				if($('.target')){
+					$('.lb-overlay').removeClass('target');
+				}
+			},
 			fetchData: function () {
 				var that = this;
 				this.trigger('loading:start');
@@ -32,28 +37,16 @@ define([
 					that.render();
 				});
 			},
-			closeFullFormatPhoto: function () {
-				if($('.target')){
-					$('.lb-overlay').removeClass('target');
-				}
-			},
-
 			startLoading: function () {
 				$('.spinner').show();
 			},
-
 			stopLoading: function () {
 				$('.spinner').hide();
 			},
-
-			initElem: function () {
-			},
-
 			addEventListeners: function () {
 				this.on('loading:start', this.startLoading, this);
 				this.on('loading:stop', this.stopLoading, this);
 			}
-
 		});
 		return App.GalleryView
 	});
