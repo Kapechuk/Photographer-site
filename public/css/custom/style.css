@@ -311,6 +311,27 @@ footer a{
 
 /*Gallery page begin*/
 
+.gallery .gallery-arrows {
+    display: none;
+    position: fixed;
+    cursor: pointer;
+    width: 24px;
+    height: 25px;
+    z-index: 100;
+}
+
+.gallery #left-arrow {
+    background: url(../../static/img/arrows.png) no-repeat 0 0;
+    left: 4%;
+    top: 50%;
+}
+
+.gallery #right-arrow {
+    background: url(../../static/img/arrows.png) no-repeat -23px 0;
+    right: 4%;
+    top: 50%;
+}
+
 .lb-album{
     display:inline-block;
     position:relative;
@@ -478,7 +499,7 @@ footer a{
     height: auto;
     bottom: 0;
     right: 0;
-    padding: 80px 100px 0 100px;
+    padding: 80px 100px 20px 100px;
 }
 /*Скорость открытия большой Фото*/
 .lb-overlay.target img {
