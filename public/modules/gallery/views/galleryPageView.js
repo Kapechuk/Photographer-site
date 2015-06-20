@@ -16,10 +16,20 @@ define([
 				});
 			},
 			events : {
-				'click .gallery-arrows' : 'getNewPhoto'
+				'click .gallery-arrows' : 'getNewPhoto',
+				'mousedown .gallery-arrows' : 'startAnimateButton',
+				'mouseup .gallery-arrows' : 'finishAnimateButton'
 			},
 			getNewPhoto: function (e) {
 				this.galleryView.getPhoto(e);
+			},
+			startAnimateButton: function (e) {
+				var button = e.target;
+				$(button).css('zoom', '0.9');
+			},
+			finishAnimateButton: function (e) {
+				var button = e.target;
+				$(button).css('zoom', '1');
 			},
 			template: _.template(galleryPageTemplate),
 			render: function() {
