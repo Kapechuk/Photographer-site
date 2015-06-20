@@ -315,19 +315,19 @@ footer a{
     display: none;
     position: fixed;
     cursor: pointer;
-    width: 24px;
-    height: 25px;
+    width: 100px;
+    height: 127px;
     z-index: 100;
 }
 
 .gallery #left-arrow {
-    background: url(../../static/img/arrows.png) no-repeat 0 0;
+    background: url(../../static/img/arrows-1x.png) no-repeat 0 0;
     left: 4%;
     top: 50%;
 }
 
 .gallery #right-arrow {
-    background: url(../../static/img/arrows.png) no-repeat -23px 0;
+    background: url(../../static/img/arrows-1x.png) no-repeat -100px 0;
     right: 4%;
     top: 50%;
 }
