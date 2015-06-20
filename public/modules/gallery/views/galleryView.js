@@ -10,8 +10,7 @@ define([
 			selectors: {},
 			events: {
 				'click .open' : 'openFullFormatPhoto',
-				'click .lb-close' : 'closeFullFormatPhoto',
-				'click .gallery-arrows' : 'getPhoto'
+				'click .lb-close' : 'closeFullFormatPhoto'
 			},
 			initialize : function () {
 				this.addEventListeners();
@@ -26,15 +25,17 @@ define([
 				this.$el.appendTo(this.parent.$el);
 			},
 			getPhoto: function (e) {
-				var button = $(e.target);
+				var button = e.target;
 				var photoContainer = $('.target');
 
 				switch (button.id) {
 					case "right-arrow" :
-						this.renderFullFormatPhoto(photoContainer);
+						var nextPhotoContainer = photoContainer.parent().next().find('.lb-overlay');
+						this.renderFullFormatPhoto(nextPhotoContainer);
 						break;
 					case "left-arrow" :
-						this.renderFullFormatPhoto(photoContainer);
+						var prevPhotoContainer = photoContainer.parent().prev().find('.lb-overlay');
+						this.renderFullFormatPhoto(prevPhotoContainer);
 						break;
 					default :
 						break;

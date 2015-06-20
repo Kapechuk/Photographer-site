@@ -15,6 +15,12 @@ define([
 					parent : that
 				});
 			},
+			events : {
+				'click .gallery-arrows' : 'getNewPhoto'
+			},
+			getNewPhoto: function (e) {
+				this.galleryView.getPhoto(e);
+			},
 			template: _.template(galleryPageTemplate),
 			render: function() {
 				this.$el.html(this.template());
