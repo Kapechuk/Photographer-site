@@ -25,11 +25,15 @@ define([
 			},
 			startAnimateButton: function (e) {
 				var button = e.target;
-				$(button).css('zoom', '0.9');
+				$(button).animate({
+					zoom: 0.9
+				}, 100);
 			},
 			finishAnimateButton: function (e) {
 				var button = e.target;
-				$(button).css('zoom', '1');
+				$(button).animate({
+					zoom: 1
+				}, 100);
 			},
 			template: _.template(galleryPageTemplate),
 			render: function() {
